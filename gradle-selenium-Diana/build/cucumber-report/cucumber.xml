@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.474">
+<testcase classname="consultar producto" name="consultar un producto" time="0.208">
+<failure message="" type="java.lang.NullPointerException"><![CDATA[Given una pagina de productos bancarios.....................................failed
+When un usuario hace una consulta...........................................skipped
+And hace clic al boton solicitar productos..................................skipped
+And selecciona inversiones..................................................skipped
+And fija un filtro..........................................................skipped
+And selecciona un valor.....................................................skipped
+And verifica el producto....................................................skipped
+Then la aplicacion muestra un resultado.....................................skipped
+And puede iniciar un tramite................................................skipped
+
+StackTrace:
+java.lang.NullPointerException
+	at theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)
+	at ✽.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)
+]]></failure>
+</testcase>
+</testsuite>

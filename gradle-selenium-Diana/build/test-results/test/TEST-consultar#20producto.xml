@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="consultar producto" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-02-06T03:38:51" hostname="DESKTOP-HSRN9K2" time="0.466">
+  <properties/>
+  <testcase name="consultar un producto" classname="consultar producto" time="0.466">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)
+	at ✽.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)
+</failure>
+  </testcase>
+  <system-out><![CDATA[
+@consultaproducto
+Scenario: consultar un producto              ?[90m# src/test/resources/features/consultaproducto.feature:4?[0m
+  ?[31mGiven ?[0m?[31muna pagina de productos bancarios?[0m    ?[90m# theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios()?[0m
+      ?[31mjava.lang.NullPointerException
+	at theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)
+	at ?.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)
+?[0m
+  ?[36mWhen ?[0m?[36mun usuario hace una consulta?[0m          ?[90m# theinternet.StepsDefinitions.UnUsuarioHaceUnaConsulta()?[0m
+  ?[36mAnd ?[0m?[36mhace clic al boton solicitar productos?[0m ?[90m# theinternet.StepsDefinitions.HaceClicAlBotonSolicitarProductos()?[0m
+  ?[36mAnd ?[0m?[36mselecciona inversiones?[0m                 ?[90m# theinternet.StepsDefinitions.SeleccionaInversiones()?[0m
+  ?[36mAnd ?[0m?[36mfija un filtro?[0m                         ?[90m# theinternet.StepsDefinitions.FijaUnFiltro()?[0m
+  ?[36mAnd ?[0m?[36mselecciona un valor?[0m                    ?[90m# theinternet.StepsDefinitions.SeleccionaUnValor()?[0m
+  ?[36mAnd ?[0m?[36mverifica el producto?[0m                   ?[90m# theinternet.StepsDefinitions.VerificaElProducto()?[0m
+  ?[36mThen ?[0m?[36mla aplicacion muestra un resultado?[0m    ?[90m# theinternet.StepsDefinitions.LaAplicacionMuestraUnResultado()?[0m
+  ?[36mAnd ?[0m?[36mpuede iniciar un tramite?[0m               ?[90m# theinternet.StepsDefinitions.PuedeIniciarUnTramite()?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RunTests" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="DESKTOP-HSRN9K2" time="0.0">
+  <properties/>
+  <system-out><![CDATA[
+?[31mFailed scenarios:?[0m
+?[31mfile:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:4?[0m# consultar un producto
+
+1 Scenarios (?[31m1 failed?[0m)
+9 Steps (?[31m1 failed?[0m, ?[36m8 skipped?[0m)
+0m0,474s
+
+
+java.lang.NullPointerException
+	at theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)
+	at ?.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)
+
+
+]]></system-out>
+  <system-err><![CDATA[feb 05, 2022 10:38:51 PM io.cucumber.junit.Cucumber <init>
+ADVERTENCIA: By default Cucumber is running in --non-strict mode.
+This default will change to --strict and --non-strict will be removed.
+You can use --strict or @CucumberOptions(strict = true) to suppress this warning
+]]></system-err>
+</testsuite>

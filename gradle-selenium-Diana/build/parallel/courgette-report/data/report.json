@@ -1,0 +1,129 @@
+[ {
+  "line" : 2,
+  "elements" : [ {
+    "start_timestamp" : "2022-02-06T03:38:50.097Z",
+    "line" : 4,
+    "name" : "consultar un producto",
+    "description" : "",
+    "id" : "consultar-producto;consultar-un-producto",
+    "type" : "scenario",
+    "keyword" : "Scenario",
+    "steps" : [ {
+      "result" : {
+        "error_message" : "java.lang.NullPointerException\r\n\tat theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)\r\n\tat ✽.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)\r\n",
+        "duration" : 6000000,
+        "status" : "failed"
+      },
+      "line" : 5,
+      "name" : "una pagina de productos bancarios",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios()"
+      },
+      "keyword" : "Given "
+    }, {
+      "result" : {
+        "duration" : 1000000,
+        "status" : "skipped"
+      },
+      "line" : 6,
+      "name" : "un usuario hace una consulta",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.UnUsuarioHaceUnaConsulta()"
+      },
+      "keyword" : "When "
+    }, {
+      "result" : {
+        "duration" : 1000000,
+        "status" : "skipped"
+      },
+      "line" : 7,
+      "name" : "hace clic al boton solicitar productos",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.HaceClicAlBotonSolicitarProductos()"
+      },
+      "keyword" : "And "
+    }, {
+      "result" : {
+        "duration" : 1000000,
+        "status" : "skipped"
+      },
+      "line" : 8,
+      "name" : "selecciona inversiones",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.SeleccionaInversiones()"
+      },
+      "keyword" : "And "
+    }, {
+      "result" : {
+        "duration" : 2000000,
+        "status" : "skipped"
+      },
+      "line" : 9,
+      "name" : "fija un filtro",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.FijaUnFiltro()"
+      },
+      "keyword" : "And "
+    }, {
+      "result" : {
+        "duration" : 1000000,
+        "status" : "skipped"
+      },
+      "line" : 10,
+      "name" : "selecciona un valor",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.SeleccionaUnValor()"
+      },
+      "keyword" : "And "
+    }, {
+      "result" : {
+        "duration" : 2000000,
+        "status" : "skipped"
+      },
+      "line" : 11,
+      "name" : "verifica el producto",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.VerificaElProducto()"
+      },
+      "keyword" : "And "
+    }, {
+      "result" : {
+        "duration" : 3000000,
+        "status" : "skipped"
+      },
+      "line" : 12,
+      "name" : "la aplicacion muestra un resultado",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.LaAplicacionMuestraUnResultado()"
+      },
+      "keyword" : "Then "
+    }, {
+      "result" : {
+        "duration" : 1000000,
+        "status" : "skipped"
+      },
+      "line" : 13,
+      "name" : "puede iniciar un tramite",
+      "match" : {
+        "location" : "theinternet.StepsDefinitions.PuedeIniciarUnTramite()"
+      },
+      "keyword" : "And "
+    } ],
+    "tags" : [ {
+      "name" : "@consultaproducto"
+    } ]
+  } ],
+  "name" : "consultar producto",
+  "description" : "",
+  "id" : "consultar-producto",
+  "keyword" : "Feature",
+  "uri" : "file:src/test/resources/features/consultaproducto.feature",
+  "tags" : [ {
+    "name" : "@consultaproducto",
+    "type" : "Tag",
+    "location" : {
+      "line" : 1,
+      "column" : 1
+    }
+  } ]
+} ]

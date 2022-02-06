@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-02-06T03:38:51" hostname="DESKTOP-HSRN9K2" time="0.005">
+  <properties/>
+  <testcase name="consultar producto" classname="" time="0.005">
+    <failure message="courgette.runtime.CourgetteTestFailureException: Please refer to Courgette / Cucumber report for more info." type="courgette.runtime.CourgetteTestFailureException">courgette.runtime.CourgetteTestFailureException: Please refer to Courgette / Cucumber report for more info.
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

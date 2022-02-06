@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Courgette-JVM Report</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/css/core.min.css" rel="stylesheet">
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <li class="navbar-brand" href="#">Courgette-JVM Report</li>
+</nav>
+
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+        <!-- Result Cards -->
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw"></i>
+                        </div>
+                        <div class="mr-10">
+                            Total Scenarios
+                        </div>
+                    </div>
+                    <div class="card-footer text-white clearfix small z-1" style="cursor: pointer;"
+                         onclick="setSearch('');">
+                        <span class="float-left text-white" id="card-total">1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw"></i>
+                        </div>
+                        <div class="mr-10">
+                            Passed Scenarios
+                        </div>
+                    </div>
+                    <div class="card-footer text-white clearfix small z-1" style="cursor: pointer;"
+                         onclick="setSearch('Passed');">
+                        <span class="float-left text-white" id="card-passed">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw"></i>
+                        </div>
+                        <div class="mr-10">
+                            Failed Scenarios
+                        </div>
+                    </div>
+                    <div class="card-footer text-white clearfix small z-1" style="cursor: pointer;"
+                         onclick="setSearch('Failed');">
+                        <span class="float-left text-white" id="card-failed">1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw"></i>
+                        </div>
+                        <div class="mr-10">
+                            Re-run Scenarios
+                        </div>
+                    </div>
+                    <div class="card-footer text-white clearfix small z-1" style="cursor: pointer;"
+                    onclick="setSearch('Rerun');">
+                        <span class="float-left" id="card-rerun">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa"></i>Run Information
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                Timestamp:
+                            </div>
+                            <div>2022-02-06T03:38:51.247Z</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Duration:
+                            </div>
+                            <div>0 min, 3 sec</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Parallel Threads:
+                            </div>
+                            <div>10</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Parallel Run Level:
+                            </div>
+                            <div>Scenario</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Rerun Failed:
+                            </div>
+                            <div>false</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Cucumber Tags:
+                            </div>
+                            <div>@consultaproducto</div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                Cucumber Features:
+                            </div>
+                            <div>src/test/resources/features</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="mt-3 mb-3">
+                        <canvas id="pieChart" width="100%" height="321"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Table -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>
+                Results
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th width="95%">Scenario Name</th>
+                            <th>Result</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                                    <td>
+                                        <a href="" data-toggle="modal" data-target="#d6a7d3a1-513d-4dfb-923b-1f50e7bd09ea">consultar un producto</a>
+                                    </td>
+                                    <td>
+                                        <span class="float-left badge badge-danger">Failed</span>
+                                    </td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+    <!-- Modals -->
+    <div class="modal fade" id="d6a7d3a1-513d-4dfb-923b-1f50e7bd09ea" tabindex="-1" role="dialog" aria-labelledby="d6a7d3a1-513d-4dfb-923b-1f50e7bd09ea" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header text-white bg-dark">
+<span class="modal-title"><h5>consultar un producto</h5>
+<div class="font-italic text-muted">consultaproducto.feature - line 4</div></span>
+<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+Given una pagina de productos bancarios
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">6 ms</span>
+<span class="badge badge-danger">Failed</span>
+</span>
+</div>
+</div>
+<div class="row mt-2">
+<div class="col-lg-12 text-danger" style="overflow-wrap:break-word;">
+java.lang.NullPointerException
+	at theinternet.StepsDefinitions.UnaPaginaDeProductosBancarios(StepsDefinitions.java:62)
+	at ✽.una pagina de productos bancarios(file:///C:/Users/Diana/IdeaProjects/gradle_selenium/src/test/resources/features/consultaproducto.feature:5)
+
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+When un usuario hace una consulta
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">1 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And hace clic al boton solicitar productos
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">1 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And selecciona inversiones
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">1 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And fija un filtro
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">2 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And selecciona un valor
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">1 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And verifica el producto
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">2 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+Then la aplicacion muestra un resultado
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">3 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-lg-9" style="overflow-wrap:break-word;">
+And puede iniciar un tramite
+</div>
+<div class="col-lg-3">
+<span class="float-right">
+<span class="badge badge-info">1 ms</span>
+<span class="badge badge-warning">Skipped</span>
+</span>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/mdb.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/prashant-ramcharan/courgette-jvm/src/main/resources/report/js/Chart.min.js"></script>
+
+<script>
+    var passed = $('#card-passed').text();
+    var failed = $('#card-failed').text();
+    var rerun = $('#card-rerun').text();
+
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var pieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Passed", "Failed", "Re-run"],
+            datasets: [{
+                data: [passed, failed, rerun],
+                backgroundColor: ["#28a745", "#dc3545", "#ffbb33"]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+</script>
+
+<script>
+    function setSearch(criteria) {
+        var search = "\"" + criteria + "\"";
+        if (criteria.length < 2) {
+            search = ''
+        }
+        $("input[type='search']").val(search).trigger($.Event("keyup", {keyCode: 13}));
+    }
+</script>
+
+</body>
+
+</html>
